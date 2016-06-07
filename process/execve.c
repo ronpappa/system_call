@@ -10,7 +10,7 @@ int main()
  
     if ((pid = fork()) < 0) {       /*子プロセスを作成*/
        perror("fork");              /*エラーが発生した場合はエラーメッセージを表示*/
-       retrun 1;                    /*戻り値１で正常終了*/
+       return 1;                    /*戻り値１で正常終了*/
        } else if (pid == 0) {       /*子プロセスの場合*/
          argv[0] = "echo" ;         /*第０引数はechoのコマンド名*/
          argv[1] = "Hello, from child";         /*第１引数はテストメッセージ*/
@@ -18,6 +18,6 @@ int main()
          execve("/bin/echo" , argv, environ);   /*execvでechoコマンドを実行*/
          _exit(1);                              /*もしここに到達した場合にはエラー*/
         }
-        write(1, "hello, from parent\n , 19);   /*親プロセスからメッセージを出力*/
+        write(1, "hello, from parent\n" , 19);   /*親プロセスからメッセージを出力*/
         return 0;
 }
