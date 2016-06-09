@@ -13,10 +13,10 @@ int main()
       perror("fork");                   /*エラーが発生した場合はエラーメッセージを表示*/
       return 1;                         /*戻り値１で異常終了*/
     } else if (pid == 0) {                /*子プロセスの場合*/
-      write(1, "child process\n", 14);　/*子プロセス側からメッセージを出力*/
+      write(1, "child process\n", 14); /*子プロセス側からメッセージを出力*/
       _exit(12);                        /*終了ステータス１２で子プロセスを終了*/
     }
-      write(1, "parent process\m", 15); /*親プロセス側からメッセージを出力*/
+      write(1, "parent process\n", 15); /*親プロセス側からメッセージを出力*/
 
     if ((pid ==wait(&status)) < 0) {    /*waitで子プロセスの終了を待つ*/
       perror("wait");                   /*エラーの場合はメッセージを表示*/
