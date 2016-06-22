@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 int main() {
-    if (chroot("/mhnt") < 0) {
+    if (chroot("/mnt") < 0) {
       perror("chroot");
       return 1;
     }
